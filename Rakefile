@@ -6,8 +6,8 @@ task :console do
 end
 
 USERNAME = 'j406660003'
-IMAGE = 'ruby-http'
-VERSION = '2.4.3'
+IMAGE = 'loyalfan_notifier'
+VERSION = '0.1.0'
 WORKER_APP = 'ruby application/clips_summary.rb'
 
 desc 'Build Docker image'

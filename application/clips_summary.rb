@@ -16,7 +16,6 @@ ENV['AWS_REGION'] = config.AWS_REGION
 queue = LoyalFan::Messaging::Queue.new(config.SCHEDULED_QUEUE_URL)
 channels = []
 
-puts 'Summarizing clips information: '
 queue.poll do |channel_json|
   channel = LoyalFan::ChannelRepresenter
             .new(OpenStruct.new)
@@ -26,7 +25,7 @@ end
 
 # Notify user about popular clips of all time.
 
-puts 'Popular Clips of all time:\n\n'
+puts 'Popular clips of all time:\n\n'
 channels.each do |channel|
   puts "#{channel.name}: "
   channel.clips.sort_by! { |i| i.view }
