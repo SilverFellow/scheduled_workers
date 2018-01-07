@@ -31,7 +31,7 @@ namespace :docker do
     puts " Running in #{env} mode"
 
     sh 'docker run -e WORKER_ENV -v $(pwd)/config:/worker/config --rm -it ' \
-       "#{USERNAME}/#{IMAGE}:#{VERSION}"
+       "#{USERNAME}/#{IMAGE}:#{VERSION} rake worker"
   end
 
   desc 'Remove exited containers'

@@ -25,11 +25,14 @@ end
 
 # Notify user about popular clips of all time.
 
-puts 'Popular clips of all time:\n\n'
+puts "\n\nPopular clips of all time:\n\n"
 channels.each do |channel|
-  puts "#{channel.name}: "
+  puts "Channel:  #{channel.name}"
+  puts '--------------------------------'
   channel.clips.sort_by! { |i| i.view }
   channel.clips.reverse!
-  puts "View: #{channel.clips[0].view}, title: #{channel.clips[0].title}, #{channel.clips[0].url}"
-  puts '========================='
+  3.times do |i|
+    puts "#{channel.clips[i].view}, #{channel.clips[i].title}, #{channel.clips[i].url}"
+  end
+  puts "\n\n"
 end
